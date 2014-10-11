@@ -4,7 +4,7 @@ namespace Lockheed_Inventory.Inventory
     using Lockheed_Inventory;
     using System.Collections.Generic;
     using Lockheed_Inventory.Inventory.Interfaces;
-    public abstract class Inventory : ITakeable, IRemovable
+    public class Inventory : ITakeable, IRemovable
     {
         protected Inventory(int inventoryLimit = 40)
         {
