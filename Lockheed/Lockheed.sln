@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LockHeedTest", "LockHeedTest\LockHeedTest.csproj", "{A36B0466-6B49-4E55-B7D4-D9974F83013E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LockheedCore", "LockheedCore\LockheedCore.csproj", "{75E6E8E0-EA45-4606-A6B5-39502136CF6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A36B0466-6B49-4E55-B7D4-D9974F83013E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A36B0466-6B49-4E55-B7D4-D9974F83013E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A36B0466-6B49-4E55-B7D4-D9974F83013E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75E6E8E0-EA45-4606-A6B5-39502136CF6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75E6E8E0-EA45-4606-A6B5-39502136CF6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75E6E8E0-EA45-4606-A6B5-39502136CF6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75E6E8E0-EA45-4606-A6B5-39502136CF6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
