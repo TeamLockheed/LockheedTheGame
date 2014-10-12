@@ -1,0 +1,10 @@
+- fuck you
+- make branch for feature
+- do not commit on master
+- fork the project if you want to change it or make your own version
+- open pull request if you want a code review or to merge a feature branch
+- name branches `this-is-a-branch`
+- create your files in the LockheedCore project and don't make separate projects
+- start the game from Lockheed2D or LockheedConsole
+- use folders and namespaces to separate classes in the LockheedCore
+- forgot the rest cause I just lost them
