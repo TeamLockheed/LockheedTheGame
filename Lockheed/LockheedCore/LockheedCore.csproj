@@ -60,8 +60,19 @@
     <Compile Include="Obstacle\Obstacle.cs" />
     <Compile Include="Obstacle\ObstructedObstacle.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Weapons\OneHanded\BastardSword.cs" />
+    <Compile Include="Weapons\OneHanded\Dagger.cs" />
+    <Compile Include="Weapons\OneHanded\Hatchet.cs" />
+    <Compile Include="Weapons\OneHanded\Wand.cs" />
+    <Compile Include="Weapons\TwoHanded\Bow.cs" />
+    <Compile Include="Weapons\TwoHanded\Crossbow.cs" />
+    <Compile Include="Weapons\TwoHanded\GreatSword.cs" />
+    <Compile Include="Weapons\TwoHanded\WarAxe.cs" />
+    <Compile Include="Weapons\Weapon.cs" />
+    <Compile Include="Weapons\WeaponHandling.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="sfmlnet-audio-2">
       <HintPath>ref\sfmlnet-audio-2.dll</HintPath>
     </Reference>
@@ -72,6 +83,10 @@
       <HintPath>ref\sfmlnet-window-2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -92,6 +107,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Armor\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
