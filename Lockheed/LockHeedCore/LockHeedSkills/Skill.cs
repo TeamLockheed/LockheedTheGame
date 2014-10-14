@@ -1,10 +1,8 @@
-﻿
+﻿using System;
 
-namespace TestSFML
+namespace LockHeedCore
 {
-    using System;
-   public enum Tier { Beginner, Adept, Master}
-
+    
     public abstract class Skill : ILearnable , ICastable
     {
         private string name;
@@ -88,13 +86,13 @@ namespace TestSFML
             set { this.manaCost = value; }
         }
 
-        public abstract void Cast();
+        public abstract void Cast(Character character,float x,float y);
 
-        public virtual void Learn(this Character character,Skill skill)
+        public virtual void Learn(Character character)
         {
-            if (character.UnlockedTiers.Contains(skill.Tier) && !character.UnlockedSkills.Contains(skill))
+            if (character.UnlockedTiers.Contains(this.Tier) && !character.UnlockedSkills.Contains(this))
             {
-                character.UnlockedSkills.Add(skill);
+                character.UnlockedSkills.Add(this);
             }
 
         }

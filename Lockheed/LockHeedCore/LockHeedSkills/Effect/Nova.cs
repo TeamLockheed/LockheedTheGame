@@ -1,9 +1,9 @@
-﻿
+﻿using System;
 
 
-namespace TestSFML
+namespace LockHeedCore
 {
-    using System;
+    
     public class Nova : Effect
     {
         private string directory;
@@ -23,7 +23,7 @@ namespace TestSFML
             
         }
 
-        public static override bool CheckCollision(Nova nova)
+        public bool CheckCollision(Nova nova)
         {
             return true;
 

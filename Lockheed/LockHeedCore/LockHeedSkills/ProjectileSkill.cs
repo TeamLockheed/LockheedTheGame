@@ -1,8 +1,8 @@
-﻿
+﻿using System;
 
-namespace TestSFML
+namespace LockHeedCore
 {
-    using System;
+    
     public class ProjectileSkill : Skill
     {
         public int Distance { get; set; }
@@ -13,17 +13,17 @@ namespace TestSFML
             this.Distance = distance;
         }
 
-        public override void Cast(this Character character,ProjectileSkill projSkill,int mouseX,int mouseY)
+        public override void Cast(Character character,float mouseX,float mouseY)
         {
-            if (character.Mana >= projSkill.ManaCost) 
+            if (character.Mana >= this.ManaCost) 
             {
-                character.Mana -= projSkill.ManaCost;
+                character.Mana -= this.ManaCost;
 
                 var rad = Math.Atan2(character.Y-mouseY, character.X - mouseX);
                 var deltaX = Math.Cos(rad);
                 var deltaY = Math.Sin(rad);
 
-                Projectile Projectile = new Projectile("test", projSkill.Distance, character.X, character.Y, deltaX, deltaY);
+                Projectile Projectile = new Projectile("test", 500, character.X, character.Y, deltaX, deltaY);
             }     
         }
 

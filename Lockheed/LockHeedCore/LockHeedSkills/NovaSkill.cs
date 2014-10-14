@@ -1,9 +1,8 @@
-﻿
+﻿using System;
 
-
-namespace TestSFML
+namespace LockHeedCore
 {
-    using System;
+
     public class NovaSkill : Skill
     {
 
@@ -15,7 +14,7 @@ namespace TestSFML
             this.Radius = radius;
         }
 
-        public override void Cast(this Character character, int mouseX, int mouseY)
+        public override void Cast(Character character,float mouseX, float mouseY)
         {
             if (character.Mana >= this.ManaCost)
             {

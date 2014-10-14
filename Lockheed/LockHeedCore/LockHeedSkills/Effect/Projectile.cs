@@ -1,16 +1,15 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
 
-namespace TestSFML
+namespace LockHeedCore
 {
-    using System;
-    using System.Collections.Generic;
 
     public class Projectile : Effect
     {
         private string sourceImage;
         private double distance;
-        private double X;
-        private double Y;
+        private double x;
+        private double y;
         private double deltaX;
         private double deltaY;
 
@@ -19,8 +18,8 @@ namespace TestSFML
         public static List<Projectile> projectiles = new List<Projectile>();
 
 
-        public Projectile(string sourceImage, int distance, double X,double Y,double deltaX, double deltaY) 
-            :base(sourceImage,distance,X,Y)
+        public Projectile(string sourceImage, int distance, double x,double y,double deltaX, double deltaY) 
+            :base(sourceImage,distance,x,y)
         {          
             this.deltaX = deltaX;
             this.deltaY = deltaY;       
@@ -31,8 +30,8 @@ namespace TestSFML
         {
             foreach (var proj in projectiles) 
             {
-                proj.X += proj.deltaX * MovementModifier;
-                proj.Y += proj.deltaY * MovementModifier;
+                proj.x += proj.deltaX * MovementModifier;
+                proj.y += proj.deltaY * MovementModifier;
                 proj.distance -= Math.Sqrt(Math.Pow(proj.deltaX * MovementModifier,2) + Math.Pow(proj.deltaY * MovementModifier,2));
 
                 if(CheckCollision(proj) || proj.distance<=0)
@@ -42,10 +41,9 @@ namespace TestSFML
             }
         }
 
-        public static override bool CheckCollision(Projectile projectile)
+        public static bool CheckCollision(Projectile projectile)
         {
             return true;
-
         }
 
 
