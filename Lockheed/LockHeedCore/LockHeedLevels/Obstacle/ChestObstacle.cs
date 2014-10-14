@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LockHeedCore
 {
-   public class Chest : Obstacle
+   public class ChestObstacle : Obstacle
     {
-       public Chest(string sourceImage,float x,float y)
+       public ChestObstacle(string sourceImage,float x,float y)
            :base(sourceImage,x,y)
        {
 

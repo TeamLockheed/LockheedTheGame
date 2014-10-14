@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LockHeedCore
 {
+  
     public class Door
     {
         public DoorPosition Position { get; set; }
