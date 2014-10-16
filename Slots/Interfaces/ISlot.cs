@@ -4,9 +4,8 @@ namespace Lockheed_Inventory.Slots.Interfaces
     using System.Collections.Generic;
     public interface ISlot
     {
-        void Equip(SlotsEnueration item);
-
-        void UnEquip(SlotsEnueration item);
-        List<SlotsEnueration> EquipedItemsList { get; }
+        void Equip(IEquipedItems item);
+        void UnEquip(IEquipedItems item);
+        List<IEquipedItems> EquipedItemsList { get; }
     }
 }
