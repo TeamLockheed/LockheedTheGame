@@ -4,15 +4,11 @@ namespace Lockheed_Inventory.Slots
     using System.Collections.Generic;
     using Lockheed_Inventory.Slots.Interfaces;
 
-    public enum SlotsEnueration
+    public class Slot : ISlot, IEquipedItems
     {
-        Armor, Belt, Boots, Gloves, Helm, Weapon
-    }
-    public class Slot : ISlot
-    {
-        private List<SlotsEnueration> equipedItemsList = new List<SlotsEnueration>();
+        private List<IEquipedItems> equipedItemsList = new List<IEquipedItems>();
 
-        private bool isItemEquiped(SlotsEnueration item)
+        private bool isItemEquiped(IEquipedItems item)
         {
             if (this.equipedItemsList.IndexOf(item) != -1)
             {
@@ -20,7 +16,7 @@ namespace Lockheed_Inventory.Slots
             }
             return false;
         }
-        public void Equip(SlotsEnueration item)
+        public void Equip(IEquipedItems item)
         {
             if (this.isItemEquiped(item))
             {
@@ -29,12 +25,12 @@ namespace Lockheed_Inventory.Slots
             this.equipedItemsList.Add(item);
         }
 
-        public void UnEquip(SlotsEnueration item)
+        public void UnEquip(IEquipedItems item)
         {
             this.equipedItemsList.Remove(item);
         }
 
-        public List<SlotsEnueration> EquipedItemsList
+        public List<IEquipedItems> EquipedItemsList
         {
             get { return this.equipedItemsList; }
         }
