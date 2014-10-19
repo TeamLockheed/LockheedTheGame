@@ -5,12 +5,12 @@ namespace LockHeedCore
     
     public class ProjectileSkill : Skill
     {
-        public int Distance { get; set; }
 
-        public ProjectileSkill(string name, int reqStr, int reqAgi, int reqInt, Tier tier, int manaCost,int distance)
+        public int ProjectileSpeed { get; private set; } 
+        public ProjectileSkill(string name, int reqStr, int reqAgi, int reqInt, Tier tier, int manaCost,int speed)
             :base(name,reqStr,reqAgi,reqInt,tier,manaCost)
         {
-            this.Distance = distance;
+            this.ProjectileSpeed = speed;
         }
 
         public override void Cast(Character character,float mouseX,float mouseY)
@@ -23,7 +23,7 @@ namespace LockHeedCore
                 var deltaX = Math.Cos(rad);
                 var deltaY = Math.Sin(rad);
 
-                Projectile Projectile = new Projectile("test", 500, character.X, character.Y, deltaX, deltaY);
+                Projectile Projectile = new Projectile("testDirectory", character.X, character.Y, deltaX, deltaY,ProjectileSpeed);
             }     
         }
 

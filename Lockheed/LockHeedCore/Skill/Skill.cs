@@ -40,7 +40,7 @@ namespace LockHeedCore
             get { return this.requiredStrength; }
             set 
             {
-                if (value == null || value <= 9) 
+                if (value <= 9) 
                 {
                     throw new ArgumentException("Required strength must be a number larger than 9");
                 }
@@ -53,7 +53,7 @@ namespace LockHeedCore
             get { return this.requiredAgility; }
             set
             {
-                if (value == null || value <= 9)
+                if (value <= 9)
                 {
                     throw new ArgumentException("Required agility must be a number larger than 9");
                 }
@@ -66,7 +66,7 @@ namespace LockHeedCore
             get { return this.requiredIntelligence; }
             set
             {
-                if (value == null || value <= 9)
+                if (value <= 9)
                 {
                     throw new ArgumentException("Required intelligence must be a number larger than 9");
                 }
