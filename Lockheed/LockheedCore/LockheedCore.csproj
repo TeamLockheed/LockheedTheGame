@@ -52,23 +52,69 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Character.cs" />
-    <Compile Include="Door.cs" />
-    <Compile Include="Level.cs" />
-    <Compile Include="Obstacle\Chest.cs" />
-    <Compile Include="Obstacle\DeadlyObstacle.cs" />
-    <Compile Include="Obstacle\Obstacle.cs" />
-    <Compile Include="Obstacle\ObstructedObstacle.cs" />
+    <Compile Include="Character\Character.cs" />
+    <Compile Include="Character\Mage.cs" />
+    <Compile Include="Character\Rogue.cs" />
+    <Compile Include="Character\Warrior.cs" />
+    <Compile Include="Character\Stats\Stats.cs" />
+    <Compile Include="EntityManager.cs" />
+    <Compile Include="Events.cs" />
+    <Compile Include="Interface\ICollidable.cs" />
+    <Compile Include="Interface\IDrawable.cs" />
+    <Compile Include="Interface\IMoveable.cs" />
+    <Compile Include="Inventory\Interface\IRemovable.cs" />
+    <Compile Include="Inventory\Interface\ITakeable.cs" />
+    <Compile Include="Inventory\Inventory.cs" />
+    <Compile Include="Inventory\Slots\Interfaces\IEquipedItems.cs" />
+    <Compile Include="Inventory\Slots\Interfaces\ISlot.cs" />
+    <Compile Include="Inventory\Slots\Slot.cs" />
+    <Compile Include="Inventory\Item.cs" />
+    <Compile Include="Level\Enemy.cs" />
+    <Compile Include="Level\Map.cs" />
+    <Compile Include="Skill\Effect\Effect.cs" />
+    <Compile Include="Level\Door\Door.cs" />
+    <Compile Include="Level\Door\DoorPosition.cs" />
+    <Compile Include="Skill\Effect\Nova.cs" />
+    <Compile Include="Skill\Effect\Projectile.cs" />
+    <Compile Include="Skill\Interface\ICastable.cs" />
+    <Compile Include="Skill\Interface\ILearnable.cs" />
+    <Compile Include="Level\Level.cs" />
+    <Compile Include="Skill\NovaSkill.cs" />
+    <Compile Include="Level\Obstacle\ChestObstacle.cs" />
+    <Compile Include="Level\Obstacle\DeadlyObstacle.cs" />
+    <Compile Include="Level\Obstacle\Obstacle.cs" />
+    <Compile Include="Level\Obstacle\ObstructedObstacle.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Skill\ProjectileSkill.cs" />
+    <Compile Include="Skill\Skill.cs" />
+    <Compile Include="Skill\Tier.cs" />
+    <Compile Include="Sprites\SpriteSheet.cs" />
+    <Compile Include="Weapons\OneHanded\BastardSword.cs" />
+    <Compile Include="Weapons\OneHanded\Dagger.cs" />
+    <Compile Include="Weapons\OneHanded\Hatchet.cs" />
+    <Compile Include="Weapons\OneHanded\Wand.cs" />
+    <Compile Include="Weapons\TwoHanded\Bow.cs" />
+    <Compile Include="Weapons\TwoHanded\Crossbow.cs" />
+    <Compile Include="Weapons\TwoHanded\GreatSword.cs" />
+    <Compile Include="Weapons\TwoHanded\WarAxe.cs" />
+    <Compile Include="Weapons\Weapon.cs" />
+    <Compile Include="Weapons\WeaponHandling.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="sfmlnet-audio-2">
+    <Reference Include="sfmlnet-audio-2, Version=2.1.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>ref\sfmlnet-audio-2.dll</HintPath>
     </Reference>
-    <Reference Include="sfmlnet-graphics-2">
+    <Reference Include="sfmlnet-graphics-2, Version=2.1.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>ref\sfmlnet-graphics-2.dll</HintPath>
     </Reference>
-    <Reference Include="sfmlnet-window-2">
+    <Reference Include="sfmlnet-system-2, Version=2.1.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ref\sfmlnet-system-2.dll</HintPath>
+    </Reference>
+    <Reference Include="sfmlnet-window-2, Version=2.1.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>ref\sfmlnet-window-2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -93,6 +139,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

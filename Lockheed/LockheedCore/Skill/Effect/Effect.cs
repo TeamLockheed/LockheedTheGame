@@ -1,28 +1,20 @@
-﻿
+﻿using System;
 
-
-namespace TestSFML
+namespace LockHeedCore
 {
-    using System;
-
     public abstract class Effect
     {
-        public const double MovementModifier = 5;
 
-        private string directory;
-        private int distance;
-        private double x;
-        private double y;
+        public string Directory;
+        public double X;
+        public double Y;
 
-        public Effect(string directory, int distance, double x, double y) 
+        public Effect(string directory, double x, double y) 
         {
-            this.directory = directory;
-            this.distance = distance;
-            this.x = x;
-            this.y = y;
+            this.Directory = directory;
+            this.X = x;
+            this.Y = y;
         }
-
-        public static abstract bool CheckCollision();
-
+        
     }
 }

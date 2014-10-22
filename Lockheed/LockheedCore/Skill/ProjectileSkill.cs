@@ -1,29 +1,29 @@
-﻿
+﻿using System;
 
-namespace TestSFML
+namespace LockHeedCore
 {
-    using System;
+    
     public class ProjectileSkill : Skill
     {
-        public int Distance { get; set; }
 
-        public ProjectileSkill(string name, int reqStr, int reqAgi, int reqInt, Tier tier, int manaCost,int distance)
+        public int ProjectileSpeed { get; private set; } 
+        public ProjectileSkill(string name, int reqStr, int reqAgi, int reqInt, Tier tier, int manaCost,int speed)
             :base(name,reqStr,reqAgi,reqInt,tier,manaCost)
         {
-            this.Distance = distance;
+            this.ProjectileSpeed = speed;
         }
 
-        public override void Cast(this Character character,ProjectileSkill projSkill,int mouseX,int mouseY)
+        public override void Cast(Character character,float mouseX,float mouseY)
         {
-            if (character.Mana >= projSkill.ManaCost) 
+            if (character.Stats.Mana >= this.ManaCost) 
             {
-                character.Mana -= projSkill.ManaCost;
+                character.Stats.DecreaseMana(this.ManaCost);
 
-                var rad = Math.Atan2(character.Y-mouseY, character.X - mouseX);
+                var rad = Math.Atan2(character.SpriteSheet.CurrentSprite.Position.Y - mouseY, character.SpriteSheet.CurrentSprite.Position.X  - mouseX);
                 var deltaX = Math.Cos(rad);
                 var deltaY = Math.Sin(rad);
 
-                Projectile Projectile = new Projectile("test", projSkill.Distance, character.X, character.Y, deltaX, deltaY);
+                Projectile Projectile = new Projectile("testDirectory", character.SpriteSheet.CurrentSprite.Position.X, character.SpriteSheet.CurrentSprite.Position.Y, deltaX, deltaY, ProjectileSpeed);
             }     
         }
 

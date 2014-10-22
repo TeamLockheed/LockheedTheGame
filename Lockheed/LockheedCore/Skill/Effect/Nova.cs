@@ -1,32 +1,35 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
 
-
-namespace TestSFML
-{
-    using System;
+namespace LockHeedCore
+{  
     public class Nova : Effect
     {
-        private string directory;
-        private int radius;
-        private double X;
-        private double Y;
+
+        private int currentRadius = 0;
+        private const int radius = 300;
+        public int Speed { get; private set; }
+        public static List<Nova> novas = new List<Nova>();
 
 
-
-        public Nova(string directory, int radius, double X, double Y)
-            : base(directory, radius, X, Y)
-        {      
+        public Nova(string directory, double X, double Y, int speed)
+            : base(directory, X, Y)
+        {
+            novas.Add(this);
         }
 
         public void MoveNova() 
-        { 
-            
-        }
-
-        public static override bool CheckCollision(Nova nova)
         {
-            return true;
-
+            if (this.currentRadius >= radius)
+            {
+                novas.Remove(this);
+            }
+            else
+            {
+                this.currentRadius += this.Speed;
+            }
         }
+
+        
     }
 }

@@ -1,51 +1,46 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
 
-namespace TestSFML
+namespace LockHeedCore
 {
-    using System;
-    using System.Collections.Generic;
 
     public class Projectile : Effect
     {
-        private string sourceImage;
-        private double distance;
-        private double x;
-        private double y;
-        private double deltaX;
-        private double deltaY;
 
-        
+        public double Distance { get; set; }
+        public double X { get; private set; }
+        public double Y { get; private set; }
+        public double DeltaX { get; private set; }
+        public double DeltaY { get; private set; }
+        public int ProjectileSpeed { get; private set; }
 
         public static List<Projectile> projectiles = new List<Projectile>();
 
-
-        public Projectile(string sourceImage, int distance, double x,double y,double deltaX, double deltaY) 
-            :base(sourceImage,distance,x,y)
+        public Projectile(string sourceImage, double x,double y,double deltaX, double deltaY,int projectileSpeed) 
+            :base(sourceImage,x,y)
         {          
-            this.deltaX = deltaX;
-            this.deltaY = deltaY;       
+            this.DeltaX = deltaX;
+            this.DeltaY = deltaY;
+            this.ProjectileSpeed = projectileSpeed;
             projectiles.Add(this);
         }
 
-        public static void MoveProjectiles()
+        public void MoveProjectile()
         {
-            foreach (var proj in projectiles) 
-            {
-                proj.x += proj.deltaX * MovementModifier;
-                proj.y += proj.deltaY * MovementModifier;
-                proj.distance -= Math.Sqrt(Math.Pow(proj.deltaX * MovementModifier,2) + Math.Pow(proj.deltaY * MovementModifier,2));
+            this.X += this.DeltaX * this.ProjectileSpeed;
+            this.Y += this.DeltaY * this.ProjectileSpeed;
+            this.Distance -= Math.Sqrt(Math.Pow(this.DeltaX * this.ProjectileSpeed, 2) + Math.Pow(this.DeltaY * this.ProjectileSpeed, 2));
 
-                if(CheckCollision(proj) || proj.distance<=0)
+            if (CheckCollision(this) || this.Distance <= 0)
                 {
-                    projectiles.Remove(proj);                  
-                }
-            }
+                    projectiles.Remove(this);                  
+                }         
         }
 
-        public static override bool CheckCollision(Projectile projectile)
+        public bool CheckCollision(Projectile projectile)
         {
-            return true;
-
+            throw new NotImplementedException("Under construction");
+            
         }
 
 
