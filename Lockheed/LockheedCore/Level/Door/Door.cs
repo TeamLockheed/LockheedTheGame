@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using SFML.Graphics;
-using SFML.Window;
 namespace LockHeedCore
 {
-  
-    public class Door :IDrawable
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+
+    using SFML.Graphics;
+    using SFML.Window;
+
+    public class Door : IDrawable
     {
         private static readonly Random random = new Random();
 
@@ -14,7 +15,6 @@ namespace LockHeedCore
         public int LevelToId { get; private set; }
         public bool IsOpen { get; set; }
         public SpriteSheet SpriteSheet { get; set; }
-
         private float x;
         private float y;
 
@@ -52,8 +52,6 @@ namespace LockHeedCore
             }
         }
 
-      
-
         public static DoorPosition getOppositePosition(DoorPosition doorPos)
         {
             switch (doorPos)
@@ -67,7 +65,7 @@ namespace LockHeedCore
         }
 
         public static DoorPosition getRandomPosition()
-        {                 
+        {
             switch (random.Next(1, 5))
             {
                 case 1: return DoorPosition.Bottom;
@@ -79,27 +77,26 @@ namespace LockHeedCore
         }
 
         private SpriteSheet getSpriteSheet()
-        { 
-         switch(this.Position)
-                {
-                    case DoorPosition.Top: return new SpriteSheet(new Sprite(new Texture("level/door/doorTop.png")));
-                    case DoorPosition.Bottom: return new SpriteSheet(new Sprite(new Texture("level/door/doorBottom.png")));
-                    case DoorPosition.Left: return new SpriteSheet(new Sprite(new Texture("level/door/doorLeft.png")));
-                    case DoorPosition.Right: return new SpriteSheet(new Sprite(new Texture("level/door/doorRight.png")));
-                    default: throw new InvalidEnumArgumentException("No such door type");
-                }
+        {
+            switch (this.Position)
+            {
+                case DoorPosition.Top: return new SpriteSheet(new Sprite(new Texture("level/door/doorTop.png")));
+                case DoorPosition.Bottom: return new SpriteSheet(new Sprite(new Texture("level/door/doorBottom.png")));
+                case DoorPosition.Left: return new SpriteSheet(new Sprite(new Texture("level/door/doorLeft.png")));
+                case DoorPosition.Right: return new SpriteSheet(new Sprite(new Texture("level/door/doorRight.png")));
+                default: throw new InvalidEnumArgumentException("No such door type");
+            }
         }
 
         public void Draw(RenderTarget window)
         {
             this.SpriteSheet.CurrentSprite.Position = new Vector2f(this.x, this.y);
-            window.Draw(this.SpriteSheet.CurrentSprite);        
+            window.Draw(this.SpriteSheet.CurrentSprite);
         }
 
         public override string ToString()
         {
             return "Door: " + this.Position;
         }
-
     }
 }
