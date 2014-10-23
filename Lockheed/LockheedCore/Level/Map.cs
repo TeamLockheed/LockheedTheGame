@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-
-
 namespace LockHeedCore
 {
+    using System;
+    using System.Collections.Generic;
+    using LockHeedCore.Exceptions;
 
     public class Map
     {
         private static readonly Random random = new Random();
-        public string Id { get; set; }
+
+        private string id;
         public Level[,] Levels = new Level[21, 21];
-
-
         public Map(string id)
         {
             this.Id = id;
-
         }
-
         public static Map generateMap()
         {
             DoorPosition prevLevelDoorPosition = DoorPosition.Bottom;
@@ -32,29 +28,26 @@ namespace LockHeedCore
                     Obstacle obstacle = null;
                     switch (random.Next(1, 4))
                     {
-                        case 1: obstacle = new ChestObstacle( obstNumber * 150, new Random().Next(80, 400), null); break;
-                        case 2: obstacle = new DeadlyObstacle( obstNumber * 150, new Random().Next(80, 400)); break;
-                        case 3: obstacle = new ObstructedObstacle( obstNumber * 150, new Random().Next(80, 400)); break;
+                        case 1: obstacle = new ChestObstacle(obstNumber * 150, new Random().Next(80, 400), null); break;
+                        case 2: obstacle = new DeadlyObstacle(obstNumber * 150, new Random().Next(80, 400)); break;
+                        case 3: obstacle = new ObstructedObstacle(obstNumber * 150, new Random().Next(80, 400)); break;
                     }
                     obstacles.Add(obstacle);
                 }
-
                 List<Door> doors = new List<Door>(2);
                 DoorPosition randomDoorPosition = Door.getRandomPosition();
                 if (levelNumber == 1)
-                {                  
-                    doors.Add(new Door(randomDoorPosition,levelNumber+1));                  
+                {
+                    doors.Add(new Door(randomDoorPosition, levelNumber + 1));
                     prevLevelDoorPosition = Door.getOppositePosition(randomDoorPosition);
                 }
                 else if (levelNumber > 1 && levelNumber < 10)
                 {
                     doors.Add(new Door(prevLevelDoorPosition, levelNumber - 1));
-                        
                     if (randomDoorPosition == prevLevelDoorPosition)
                     {
                         randomDoorPosition = Door.getOppositePosition(randomDoorPosition);
                     }
-                    
                     doors.Add(new Door(randomDoorPosition, levelNumber + 1));
                     prevLevelDoorPosition = Door.getOppositePosition(randomDoorPosition);
                 }
@@ -62,7 +55,6 @@ namespace LockHeedCore
                 {
                     doors.Add(new Door(prevLevelDoorPosition, levelNumber - 1));
                 }
-
                 Level level = new Level(levelNumber, obstacles);
                 level.Doors = doors;
                 tempLevels[arrayPosX, arrayPoxY] = level;
@@ -73,21 +65,27 @@ namespace LockHeedCore
                     case DoorPosition.Left: arrayPosX--; break;
                     case DoorPosition.Right: arrayPosX++; break;
                 }
-          
             }
             Map map = new Map("map1");
             map.Levels = tempLevels;
             return map;
         }
-
-    
-
-        
-
         public override string ToString()
         {
             return String.Join(Environment.NewLine, this.Levels);
         }
 
+        public string Id
+        {
+            get
+            {
+                return this.id;
+            }
+            set
+            {
+                ExceptionsHolder.CheckNullableString(value, "Id cannot be null or empty!");
+                this.id = value;
+            }
+        }
     }
 }
