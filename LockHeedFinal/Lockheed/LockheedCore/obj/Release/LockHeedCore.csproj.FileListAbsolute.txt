@@ -1,0 +1,10 @@
+C:\Users\GLAVUN\Documents\Visual Studio 2012\Projects\Lockheed\LockHeedCore\bin\Release\LockHeedCore.exe.config
+C:\Users\GLAVUN\Documents\Visual Studio 2012\Projects\Lockheed\LockHeedCore\bin\Release\LockHeedCore.exe
+C:\Users\GLAVUN\Documents\Visual Studio 2012\Projects\Lockheed\LockHeedCore\bin\Release\LockHeedCore.pdb
+C:\Users\GLAVUN\Documents\Visual Studio 2012\Projects\Lockheed\LockHeedCore\bin\Release\sfmlnet-audio-2.dll
+C:\Users\GLAVUN\Documents\Visual Studio 2012\Projects\Lockheed\LockHeedCore\bin\Release\sfmlnet-graphics-2.dll
+C:\Users\GLAVUN\Documents\Visual Studio 2012\Projects\Lockheed\LockHeedCore\bin\Release\sfmlnet-window-2.dll
+C:\Users\GLAVUN\Documents\Visual Studio 2012\Projects\Lockheed\LockHeedCore\obj\Release\LockHeedCore.csprojResolveAssemblyReference.cache
+C:\Users\GLAVUN\Documents\Visual Studio 2012\Projects\Lockheed\LockHeedCore\obj\Release\LockHeedCore.exe
+C:\Users\GLAVUN\Documents\Visual Studio 2012\Projects\Lockheed\LockHeedCore\obj\Release\LockHeedCore.pdb
+C:\Users\GLAVUN\Documents\Visual Studio 2012\Projects\Lockheed\LockHeedCore\bin\Release\sfmlnet-system-2.dll
