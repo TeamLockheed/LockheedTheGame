@@ -11,7 +11,8 @@ Role-playing game made in SFML.NET
 -LittleNinja (Alexander Stoimenov)
 
 2. Our game – it consists of 32 classes (5 of which are abstract) and 1 engine class, 9 interfaces and 3 enumerations. Currently we have classes for the following things :
- - Character ( can be a Mage, Rogue or Warrior) – has a Stats property which is a structure. The character implements three interfaces : ICollidable, IDrawable and IMoveable
+ 
+- Character ( can be a Mage, Rogue or Warrior) – has a Stats property which is a structure. The character implements three interfaces : ICollidable, IDrawable and IMoveable
 - Enemy – same as Character but with a few differences, has an Update() method, which makes the enemy change its coordinates according to those of the Character and spawns randomly in each Level
 - Level – Consists of list of Enemies, list of Obstacles and a list of Doors,  has a generateSingleLevel(), which speaks for itself and generates one or two doors with random position , 4 random obstacles with random coordinates, and a random number of enemies which spawn outside of the level.
 -Map – Consists of a 2D array of levels which illustrates where every single level leads to
